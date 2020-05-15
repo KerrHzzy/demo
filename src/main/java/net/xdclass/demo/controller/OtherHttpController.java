@@ -18,9 +18,9 @@ public class OtherHttpController {
 	private final Map<String,Object> params = new HashMap<>();
 	/**
 	 * 功能描述：测试PostMapping
-	 * @param id
-	 * @param pwd
-	 * @return
+	 * @param  id      用户ID
+	 * @param  pwd     密码
+	 * @return params  返回结果对象
 	 */
 	@PostMapping("/v1/login")
 	public Object login(String id, String pwd) {
@@ -33,8 +33,8 @@ public class OtherHttpController {
 
 	/**
 	 * 功能描述：测试PutMapping
-	 * @param id
-	 * @return
+	 * @param  id      用户ID
+	 * @return params  返回结果对象
 	 */
 	@PutMapping("/v1/put")
 	public Object put(String id) {
@@ -46,8 +46,8 @@ public class OtherHttpController {
 
 	/**
 	 * 功能描述：测试DeleteMapping
-	 * @param id
-	 * @return
+	 * @param  id      用户ID
+	 * @return params  返回结果对象
 	 */
 	@DeleteMapping("/v1/del")
 	public Object del(String id) {
