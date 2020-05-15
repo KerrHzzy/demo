@@ -1,5 +1,6 @@
 package net.xdclass.demo.controller;
 
+import net.xdclass.demo.domain.MyException;
 import net.xdclass.demo.domain.User;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,9 +16,20 @@ import java.util.Date;
 @RestController
 public class ExceptionController {
 
+    /**
+     * 功能描述：模拟全局异常
+     */
     @RequestMapping(value = "/api/v1/test_ext")
     public Object index() {
-        int i = 1/0;
-        return new User(11, "sfsfds", "10000", new Date());
+        int i= 1/0;
+        return new User(11, "sfsfds", "1000000", new Date());
+    }
+
+    /**
+     * 功能描述：模拟自定义异常
+     */
+    @RequestMapping("/api/v1/my_ext")
+    public Object myExc(){
+        throw new MyException(499, "my ext异常");
     }
 }
