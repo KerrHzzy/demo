@@ -1,6 +1,8 @@
 package net.xdclass.demo.controller;
 
+import net.xdclass.demo.domain.ServerSetting;
 import net.xdclass.demo.domain.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -106,5 +108,17 @@ public class GetController {
         String content = request.getParameter("content");
         params.put("content", content);
         return params;
+    }
+
+    @Autowired
+    private ServerSetting serverSetting;
+
+    /**
+     * 功能描述：测试配置文件注入
+     * @return params  返回结果对象
+     */
+    @GetMapping("/v1/test_properties")
+    public Object testProperties() {
+        return serverSetting;
     }
 }

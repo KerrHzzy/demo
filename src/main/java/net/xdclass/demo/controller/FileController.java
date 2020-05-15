@@ -1,6 +1,8 @@
 package net.xdclass.demo.controller;
 
 import net.xdclass.demo.domain.JsonData;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,6 +20,7 @@ import java.util.UUID;
  * @author hdz
  */
 @RestController
+@PropertySource({"classpath:application.properties"})
 public class FileController {
 
     @RequestMapping(value = "/api/v1/go_page")
@@ -28,13 +31,17 @@ public class FileController {
     /**
      * 文件保存路径
      */
-    private static final String FILE_PATH = "C:\\Users\\mid0801\\IdeaProjects\\demo\\src\\main\\resources\\static\\images\\";
+    @Value("${web.file.path}")
+    private String filePath;
+    //private static final String FILE_PATH = "C:\\Users\\mid0801\\IdeaProjects\\demo\\src\\main\\resources\\static\\images\\";
 
     @RequestMapping(value = "upload")
     public JsonData upload(@RequestParam("head_img") MultipartFile file, HttpServletRequest request) {
 
         //file.isEmpty(); 判断图片是否为空
         //file.getSize(); 图片大小进行判断
+
+        System.out.println("配置注入答应，文件上传路径为："+filePath);
 
         String name = request.getParameter("name");
         System.out.println("用户名："+name);
@@ -52,7 +59,7 @@ public class FileController {
         fileName = UUID.randomUUID() + suffixName;
         System.out.println("转换后的名称:"+fileName);
 
-        File dest = new File(FILE_PATH + fileName);
+        File dest = new File(filePath + fileName);
 
         try {
 
