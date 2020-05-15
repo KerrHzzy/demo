@@ -15,9 +15,9 @@ import java.util.Map;
 @RestController
 public class SampleController {
 
-    @RequestMapping("/")
-    public String index() {
-        return "Greetings from Spring Boot!";
+    @RequestMapping("/test/home")
+    public String home() {
+        return "XdClass";
     }
 
     @RequestMapping("/test")
