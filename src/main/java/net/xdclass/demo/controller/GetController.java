@@ -22,7 +22,7 @@ public class GetController {
      * @param  userId 用户ID
      * @return params 返回结果对象
      */
-    @RequestMapping(path = "/{city_id}/{user_id}", method = RequestMethod.GET)
+    /*@RequestMapping(path = "/{city_id}/{user_id}", method = RequestMethod.GET)
     public Object findUser(@PathVariable("city_id") String cityId,
                            @PathVariable("user_id") String userId) {
 
@@ -31,7 +31,7 @@ public class GetController {
         params.put("userId", userId);
 
         return params;
-    }
+    }*/
 
     /**
      * 功能描述：测试GetMapping
