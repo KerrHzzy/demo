@@ -1,5 +1,13 @@
 package net.xdclass.demo.domain;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import java.util.Date;
+
 /**
  * @author hdz
  */
@@ -7,9 +15,23 @@ public class User {
 
     private int age;
 
+    @JsonIgnore
     private String pwd;
 
+    @JsonProperty("account")
+    @JsonInclude(Include.NON_NULL)
     private String phone;
+
+    @JsonFormat(pattern="yyyy-MM-dd hh:mm:ss",locale="zh",timezone="GMT+8")
+    private Date createTime;
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
 
     public int getAge() {
         return age;
@@ -39,10 +61,12 @@ public class User {
         super();
     }
 
-    public User(int age, String pwd, String phone) {
+    public User(int age, String pwd, String phone, Date createTime) {
+
         super();
         this.age = age;
         this.pwd = pwd;
         this.phone = phone;
+        this.createTime = createTime;
     }
 }
