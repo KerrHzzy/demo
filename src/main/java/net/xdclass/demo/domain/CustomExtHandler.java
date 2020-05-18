@@ -44,12 +44,15 @@ public class CustomExtHandler {
      * @return
      */
     @ExceptionHandler(value=MyException.class)
-    Object handleMyException(MyException e,HttpServletRequest request){
-        //进行页面跳转
-//		ModelAndView modelAndView = new ModelAndView();
-//	    modelAndView.setViewName("error.html");
-//	    modelAndView.addObject("msg", e.getMessage());
-//	    return modelAndView;
+    Object handleMyException(MyException e, HttpServletRequest request) {
+
+        LOG.error("url == {}, msg == {}", request.getRequestURL(), e.getMessage());
+/*
+        // 进行页面跳转
+		ModelAndView modelAndView = new ModelAndView();
+	    modelAndView.setViewName("error.html");
+	    modelAndView.addObject("msg", e.getMessage());
+	    return modelAndView;*/
 
         // 返回json数据，由前端去判断加载什么页面
         Map<String, Object> map = new HashMap<>();
