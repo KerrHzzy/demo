@@ -10,7 +10,7 @@ import java.io.IOException;
 /**
  * @author hdz
  */
-@WebServlet(name = "userServlet",urlPatterns = "/v1/api/test/customs")
+@WebServlet(name = "userServlet", urlPatterns = "/v1/api/test/customs")
 public class UserServlet extends HttpServlet{
 
     @Override

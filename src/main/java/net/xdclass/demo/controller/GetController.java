@@ -102,6 +102,8 @@ public class GetController {
      */
     @GetMapping("/v1/test_request")
     public Object testRequest(HttpServletRequest request) {
+
+        System.out.println("Controller处理中");
         params.clear();
         String id = request.getParameter("id");
         params.put("id", id);
