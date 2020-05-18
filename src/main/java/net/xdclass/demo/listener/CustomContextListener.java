@@ -7,7 +7,7 @@ import javax.servlet.annotation.WebListener;
 /**
  * @author hdz
  */
-@WebListener
+//@WebListener
 public class CustomContextListener implements ServletContextListener {
 
     @Override

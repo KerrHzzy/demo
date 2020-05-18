@@ -19,7 +19,7 @@ import java.io.IOException;
  *
  * @author hdz
  */
-@WebFilter(urlPatterns = "/api/*", filterName = "loginFilter")
+//@WebFilter(urlPatterns = "/api/*", filterName = "loginFilter")
 public class LoginFilter implements Filter {
 
     private final String USER_NAME = "xdClass";

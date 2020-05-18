@@ -124,8 +124,10 @@ public class GetController {
         return serverSetting;
     }
 
-    @GetMapping("/api/v1/account")
+    @GetMapping("/api2/v1/account")
     public Object account() {
+
+        System.out.println("controller------>account------>controller处理");
         params.put("memory" , "1000");
         return params;
     }
