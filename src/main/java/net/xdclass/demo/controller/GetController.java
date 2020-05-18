@@ -117,8 +117,14 @@ public class GetController {
      * 功能描述：测试配置文件注入
      * @return params  返回结果对象
      */
-    @GetMapping("/v1/test_properties")
+    @GetMapping("/api/v1/test_properties")
     public Object testProperties() {
         return serverSetting;
+    }
+
+    @GetMapping("/api/v1/account")
+    public Object account() {
+        params.put("memory" , "1000");
+        return params;
     }
 }
